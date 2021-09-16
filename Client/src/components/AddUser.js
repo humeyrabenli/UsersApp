@@ -11,16 +11,16 @@ class AddUser extends React.Component{
     render(){
         return (
             <div className="container">
-            <form className="mt-5" onSubmit={this.handleFormSubmit}>
-            <input className="form-control" id="disabledInput" type="text" placeholder="Fill The Form To Add A Movie.." disabled/>
+            <form className="mt-5" onSubmit={this.handleFormSubmit} style={{marginLeft:'350px'}} >
+                
                 <div className="form-row">
-                    <div className="form-group col-md-10">
+                    <div className="form-group col-md-5">
                         <label htmlFor="inputName">Ad</label>
                         <input  type="text" 
                                 className="form-control" 
                                 name="firstName"/>
                     </div>
-                    <div className="form-group col-md-10">
+                    <div className="form-group col-md-5 mt-2">
                         <label htmlFor="inputName">Soyad</label>
                         <input  type="text" 
                                 className="form-control" 
@@ -28,7 +28,7 @@ class AddUser extends React.Component{
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-12">
+                    <div className="form-group col-md-5 mt-2">
                         <label htmlFor="email">Email</label>
                         <input 
                                 type="email" 
@@ -37,7 +37,7 @@ class AddUser extends React.Component{
                     </div>
                 </div>
                 <div className="form-row">
-                    <div className="form-group col-md-12">
+                    <div className="form-group col-md-5 mt-2">
                         <label htmlFor="inputImage">Meslek</label>
                         <input 
                                 type="text" 
@@ -46,8 +46,8 @@ class AddUser extends React.Component{
                     </div>
                 </div>
                  <div className="form-row">
-                    <div className="form-group col-md-12">
-                        <label htmlFor="inputImage">Dogum tarihi</label>
+                    <div className="form-group col-md-3 mt-2">
+                        <label htmlFor="inputImage">Doğum tarihi</label>
                         <input 
                                 type="date" 
                                 className="form-control" 
@@ -55,16 +55,17 @@ class AddUser extends React.Component{
                     </div>
                 </div> 
                 <div className="form-row">
-                    <div className="form-group col-md-12">
-                        <label htmlFor="inputImage">Ögrenim</label>
+                    <div className="form-group col-md-5 mt-2">
+                        <label htmlFor="inputImage">Öğrenim Durumu</label>
                         <input 
                                 type="text" 
                                 className="form-control" 
                                 name="education"/>
                     </div>
-                </div>
+                </div> 
                 
-                <input type="submit" className="btn btn-danger btn-block" value="Add Movie" />
+                <input type="submit" className="btn btn-danger btn-block mt-2" value="Kullanıcı Ekle" />
+                
             </form>
         </div>
         )

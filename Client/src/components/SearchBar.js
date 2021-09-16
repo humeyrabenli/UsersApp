@@ -11,7 +11,7 @@ class SearchBar extends React.Component{
     render(){
         return (
            <form onSubmit={this.handleFormSubmit}>
-               <div className="form-row mb-5">
+               <div className="row mb-5">
                     <div className="col-10">
                         <input 
                         onChange={this.props.searchUserProp} 
@@ -21,7 +21,7 @@ class SearchBar extends React.Component{
                         
                     </div>
                     <div className="col-2">
-                        <Link to="/add" type="button" className="btn btn-md btn-danger" style={{float:'right'}}>
+                        <Link to="/add" type="button" className="btn btn-md btn-danger" >
                          Add User
                         </Link>
                     </div>

@@ -15,6 +15,7 @@ const UserList =(props)=> {
   }
     return (
       <div className="row">
+        
         <table className="table">
           <thead>
             <tr>
@@ -23,8 +24,6 @@ const UserList =(props)=> {
               <th scope="col">Email</th>
               <th scope="col">Yaş</th>
               <th></th>
-              
-              
             </tr>
           </thead>
           <tbody>
@@ -34,10 +33,10 @@ const UserList =(props)=> {
                 <td>{user.lastName}</td>
                 <td>{user.email}</td>
                 <td>{getAge(user.dateOfBirth)}</td>
-                <td><button type="button" onClick={(event)=> props.deleteUserProp(user)} className="btn btn-danger">Delete</button>
-                <Link type="button" style={{marginLeft:'10px'}} className="btn btn-md btn-outline-primary" to={`edit/${user.userId}`}>Edit</Link>
-                <Link type="button" style={{marginLeft:'10px'}} className="btn btn-md btn-outline-primary" to={`detail/${user.userId}`}>Detay</Link>
-                
+                <td>
+                <Link type="button" className="btn btn-md btn-outline-primary" to={`edit/${user.userId}`}>Güncelle</Link>
+                <Link type="button" style={{marginLeft:'10px'}} className="btn btn-md btn-outline-secondary" to={`detail/${user.userId}`}>Detay</Link>
+                <button type="button" style={{marginLeft:'10px'}} onClick={(event)=> props.deleteUserProp(user)} className="btn btn-danger">Sil</button>
                 </td>
                 
               </tr>

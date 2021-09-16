@@ -5,7 +5,7 @@ import axios from "axios";
 import AddUser from "./AddUser";
 import EditUser from "./EditUser";
 import UserDetail from "./UserDetail";
-import alertify from "alertifyjs"
+import alertify from "alertifyjs";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   async getUsers() {
     const response = await axios.get("https://localhost:44381/api/users");
-    console.log(response)
+    console.log(response);
     this.setState({ users: response.data });
   }
 
@@ -42,21 +42,26 @@ class App extends React.Component {
       users: state.users.concat([user]),
     }));
     this.getUsers();
-    alertify.success(user.firstName +" "+ user.lastName +" adlı kullanıcı sisteme eklendi");
+    alertify.success(
+      user.firstName + " " + user.lastName + " adlı kullanıcı sisteme eklendi"
+    );
   };
 
-  editUser = async (userId,updatedUser) => {
-    await axios.put(`https://localhost:44381/api/users/update/${userId}`, updatedUser);
+  editUser = async (userId, updatedUser) => {
+    await axios.put(
+      `https://localhost:44381/api/users/update/${userId}`,
+      updatedUser
+    );
     this.getUsers();
     alertify.success("Kullanıcı başarıyla güncellendi!");
-    
   };
 
   render() {
     let filteredUsers = this.state.users.filter((user) => {
+      let str=user.firstName +user.lastName;
       return (
-        user.firstName
-          .toLowerCase()
+       
+          str.toLowerCase()
           .indexOf(this.state.searchQuery.toLowerCase()) !== -1
       );
     });
@@ -74,22 +79,23 @@ class App extends React.Component {
                       <SearchBar searchUserProp={this.searchUser} />
                     </div>
                   </div>
-                  <div className="row">
-                  <UserList
-                    users={filteredUsers}
-                    deleteUserProp={this.deleteUser}
-                  />
-                  </div>
-                 
+                  <div className="row"> 
+                  
+                  
+                    <UserList
+                      users={filteredUsers}
+                      deleteUserProp={this.deleteUser}
+                    />
+                 </div>
                 </React.Fragment>
               )}
             ></Route>
             <Route
               path="/add"
-              render={({history}) => (
+              render={({ history }) => (
                 <AddUser
                   onAddUser={(user) => {
-                    this.addUser(user)
+                    this.addUser(user);
                     history.push("");
                   }}
                 />
@@ -99,28 +105,24 @@ class App extends React.Component {
               path="/edit/:userId"
               render={(props) => (
                 <EditUser
-                {...props}
-                  onEditUser={(userId,user) => {
-                    this.editUser(userId,user)
-                    
+                  {...props}
+                  onEditUser={(userId, user) => {
+                    this.editUser(userId, user);
                   }}
                 />
               )}
             ></Route>
-             <Route
+            <Route
               path="/detail/:userId"
               render={(props) => (
                 <UserDetail
-                {...props}
-                  onEditUser={(userId,user) => {
-                    this.editUser(userId,user)
-                    
+                  {...props}
+                  onEditUser={(userId, user) => {
+                    this.editUser(userId, user);
                   }}
                 />
               )}
             ></Route>
-
-            
           </Switch>
         </div>
       </Router>
