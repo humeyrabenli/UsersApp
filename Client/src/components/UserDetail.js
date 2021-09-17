@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class UserDetail extends React.Component {
   state = {
@@ -53,10 +54,15 @@ class UserDetail extends React.Component {
             <h5 className="card-title">Soyad: {this.state.lastName}</h5>
             <h5 className="card-title">Email: {this.state.email}</h5>
             <h5 className="card-title">Doğum Tarihi: {this.state.dateOfBirth}</h5>
+            <h5 className="card-title">Öğrenim Durumu: {this.state.education}</h5>
             <h5 className="card-title">Meslek: {this.state.job}</h5>
 
           </div>
+          
         </div>
+        <Link to="/" type="button" className="btn btn-md btn-info" >
+                         Ana Sayfa
+                        </Link>
       </div>
     );
   }
